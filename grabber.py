@@ -28,7 +28,7 @@ def grab(url):
     while True:
         if 'https://' in response[end-tuner : end]:
             link = response[end-tuner : end]
-            start = link.find('https://')
+            start = link.find('https://manifest.googlevideo.com')
             end = link.find('.m3u8') + 5
             break
         else:
