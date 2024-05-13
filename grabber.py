@@ -36,6 +36,7 @@ def grab(url):
     print(f"{link[start : end]}")
 
 print('#EXTM3U')
+print('#EXT-X-VERSION:4')
 print('#EXT-X-INDEPENDENT-SEGMENTS')
 
 print(banner)
