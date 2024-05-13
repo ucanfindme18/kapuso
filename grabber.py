@@ -10,16 +10,16 @@ if 'win' in sys.platform:
     windows = True
 
 def grab(url):
-    response = requests.get(url, timeout=60).text
+    response = requests.get(url, timeout=15).text
     if '.m3u8' not in response:
         #response = requests.get(url).text
         if '.m3u8' not in response:
             if windows:
                 print('https://raw.githubusercontent.com/benmoose39/YouTube_to_m3u/main/assets/moose_na.m3u')
                 return
-            #os.system(f'wget {url} -O temp.txt')
-            os.system(f'curl "{url}" > temp.txt')
-            response = ''.join(open('temp.txt').readlines())
+            #os.system(f'wget {url} -O temporary.txt')
+            os.system(f'curl "{url}" > temporary.txt')
+            response = ''.join(open('temporary.txt').readlines())
             if '.m3u8' not in response:
                 print('https://raw.githubusercontent.com/benmoose39/YouTube_to_m3u/main/assets/moose_na.m3u')
                 return
@@ -48,6 +48,6 @@ with open('youtube_channel_info.txt') as f:
         else:
             grab(line)
             
-if 'temp.txt' in os.listdir():
-    os.system('rm temp.txt')
+if 'temporary.txt' in os.listdir():
+    os.system('rm temporary.txt')
     os.system('rm watch*')
